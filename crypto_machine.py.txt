@@ -1,0 +1,90 @@
+def cryptomachine():
+    # creating key strings
+    keys = 'abcdefghijklmnopqrstuvwxyz !'
+    # auto generating the vaules of strings
+    # value will be generted by taking last to first
+    # concatinated with the rest of the string
+    values = keys[-1] + keys[0:-1]
+    # print(keys)
+    # print(values)
+
+    # creating two dictionaries
+    encrytDict = dict(zip(keys, values))
+    decryptDict = dict(zip(values, keys))
+
+    # user input
+    message = input("Enter your secret message: ")
+    mode = input("Crypto Mode : Encode(E) OR Decode(D)")
+
+    #encode and decode
+    if mode.upper() == 'E':
+        newMessage = ''.join([encrytDict[letter]
+                              for letter in message.lower()])
+    elif mode.upper() == 'D':
+        newMessage = ''.join([decryptDict[letter]
+                              for letter in message.lower()])
+    else:
+        print("Please try again, wrong choice entered")
+
+    return newMessage.capitalize()
+
+
+print(cryptomachine())
+        
+    
+#def cryptomachine(): //defining a method
+
+#//string key for dictionary
+#keys = 'abcdefghijklmnopqrstuvwxyz_!'
+
+#//string value will contain value for keys
+#//keys[-1] represents index starting from last
+#//keys[0:-1] - concatenate rest of strin from index 0 to -2
+#value = keys[-1] + keys[0:-1]
+
+#//creating dictionary
+#encryptDict = dict(zip(keys,values))
+
+#//dictionary construction
+#decryptDict = dict(zip(values,keys))
+
+#message = input("Please enter your Secret Message")
+#mode = input("Please Enter the Mode : Encode(E) or Decode(D)")
+
+#//either user can enter 'e' or 'E' it will convert the input
+#//into 'E'
+#//join - converts letter by letter to string
+#//join - fetches value corresponding to key from dictionary
+#//for letter in message.lower() - dictionary comprehension
+#//in newMessage we are storing the letter from message
+#//into lower case as keys have only lower case letters.
+
+#if(mode.upper() == 'E'): 
+    #newMessage = ''.join([encrypDict[letter] for letter in message.lower()])
+#elif mode.upper() == 'D':
+   # newMessage = ''.join([decryptDict[letter] for letter in message.lower()])
+#else:
+    #print("Please enter a correct choice")
+
+#return newMessage.capitalize()
+#print(cryptomachine())
+  
+        
+    
+        
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
